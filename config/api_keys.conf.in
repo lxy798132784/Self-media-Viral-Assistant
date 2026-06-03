@@ -1,0 +1,8 @@
+# API Keys Configuration / API 密钥配置
+EXTREME_DATA_API_KEY=your_key_here
+XINBANG_API_KEY=your_key_here
+XIGUA_DATA_API_KEY=your_key_here
+QINGBO_APP_ID=your_app_id_here
+QINGBO_SECRET=your_secret_here
+WECHAT_APP_ID=your_app_id_here
+WECHAT_APP_SECRET=your_secret_here

@@ -1,0 +1,8 @@
+# AI Providers Configuration / AI 提供商配置
+OPENAI_API_KEY=your_key_here
+OPENAI_MODEL=gpt-4-turbo-preview
+ANTHROPIC_API_KEY=your_key_here
+ANTHROPIC_MODEL=claude-3-opus-20240229
+QWEN_API_KEY=your_key_here
+QWEN_MODEL=qwen-max
+MCP_ENABLED=true

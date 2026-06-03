@@ -1,48 +1,20 @@
-```
-# Build artifacts
-CMakeFiles/
+/build/
 cmake-build-*/
-build/
-dist/
-*.so
-*.dylib
-*.dll
-*.exe
-*.o
-*.obj
-*.a
-*.lib
-
-# Dependencies
-vendor/
-external/
-
-# Logs
-*.log
-
-# Environment
-.env
-.env.local
-*.env.*
-
-# Editors
-.vscode/
 .idea/
+.vscode/
 *.swp
 *.swo
-*~
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# CMake
-CMakeCache.txt
-cmake_install.cmake
-Makefile
-```
+config/database.conf
+config/api_keys.conf
+config/ai_providers.conf
+logs/
+*.log
+*.moc
+*.qm
+*.o
+*.a
+*.so
+*.dll
+*.exe

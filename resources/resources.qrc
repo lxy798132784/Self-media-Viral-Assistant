@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/">
+        <file>qml/main.qml</file>
+        <file>qml/pages/DashboardPage.qml</file>
+        <file>qml/pages/ContentLibraryPage.qml</file>
+        <file>qml/pages/AnalysisPage.qml</file>
+        <file>qml/pages/SuggestionsPage.qml</file>
+        <file>qml/pages/SettingsPage.qml</file>
+        <file>translations/zh_CN.qm</file>
+        <file>translations/en_US.qm</file>
+    </qresource>
+</RCC>
