@@ -1,20 +1,57 @@
-/build/
-cmake-build-*/
-.idea/
+```
+# Build artifacts
+build/
+dist/
+
+# Dependencies
+node_modules/
+vendor/
+
+# IDE files
 .vscode/
+.idea/
 *.swp
 *.swo
-.DS_Store
-Thumbs.db
-config/database.conf
-config/api_keys.conf
-config/ai_providers.conf
-logs/
+
+# Logs
 *.log
-*.moc
-*.qm
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Coverage reports
+coverage/
+htmlcov/
+*.coverage
+
+# C++ specific
 *.o
+*.obj
 *.a
 *.so
 *.dll
 *.exe
+*.out
+
+# Qt specific
+*.qm
+*.pro.user
+
+# Database
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+
+# Package manager caches
+.npm/
+.yarn/
+.pip/
+```

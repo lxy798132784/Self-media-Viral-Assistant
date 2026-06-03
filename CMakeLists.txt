@@ -92,6 +92,7 @@ set(CORE_HEADERS
 
 set(API_SOURCES
     src/api/data_source_base.cpp
+    src/api/JizhileProvider.cpp
     src/api/extreme_data_api.cpp
     src/api/xinbang_api.cpp
     src/api/xigua_data_api.cpp
@@ -103,6 +104,7 @@ set(API_SOURCES
 
 set(API_HEADERS
     include/api/data_source_base.h
+    include/api/JizhileProvider.h
     include/api/extreme_data_api.h
     include/api/xinbang_api.h
     include/api/xigua_data_api.h
