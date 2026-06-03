@@ -1,0 +1,15 @@
+{
+    "name": "OpenAiProvider",
+    "version": "1.0.0",
+    "description": "OpenAI LLM AI 提供商插件 / OpenAI LLM AI Provider Plugin",
+    "author": "Media Assistant Team",
+    "type": "ai_provider",
+    "iid": "media-assistant.ai.openai",
+    "capabilities": [
+        "analyzeContent",
+        "generateTopicSuggestions",
+        "generateWritingSOP"
+    ],
+    "models": ["gpt-4", "gpt-3.5-turbo", "gpt-4-turbo"],
+    "auth_type": "api_key"
+}

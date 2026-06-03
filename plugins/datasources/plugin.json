@@ -1,0 +1,15 @@
+{
+    "name": "JizhileProvider",
+    "version": "1.0.0",
+    "description": "极致了数据 API 数据源插件 / Jizhile Data API DataSource Plugin",
+    "author": "Media Assistant Team",
+    "type": "datasource",
+    "iid": "media-assistant.datasource.jizhile",
+    "capabilities": [
+        "fetchViralContent",
+        "fetchContentDetail", 
+        "fetchContentMetrics"
+    ],
+    "platforms": ["wechat", "douyin", "xiaohongshu", "bilibili", "weibo"],
+    "auth_type": "bearer_token"
+}
