@@ -11,6 +11,9 @@
 #include <QObject>
 #include <QNetworkAccessManager>
 #include <QJsonObject>
+#include <QUrl>
+#include <QUrlQuery>
+#include <QEventLoop>
 
 namespace MediaViralAssistant::Plugins {
 
@@ -45,7 +48,7 @@ public:
      * @brief 析构函数
      *        Destructor
      */
-    ~JizhileProvider() override = default;
+    ~JizhileProvider() override;
 
     // IDataSourcePlugin interface implementation
     // IDataSourcePlugin 接口实现
@@ -120,6 +123,21 @@ public:
      * @return true 如果连接成功 / true if connection successful
      */
     QFuture<bool> testConnection() override;
+    
+    /**
+     * @brief 设置认证 Token
+     *        Set authentication token
+     * @param token Bearer Token
+     */
+    void setToken(const QString& token);
+
+private slots:
+    /**
+     * @brief 处理网络请求完成信号
+     *        Handle network request finished signal
+     * @param reply 网络回复对象 / Network reply object
+     */
+    void onNetworkReplyFinished(QNetworkReply* reply);
 
 private:
     /**
@@ -139,11 +157,19 @@ private:
      * @return Error 错误对象 / Error object
      */
     Base::Error parseError(QNetworkReply* reply);
+    
+    /**
+     * @brief 发送 HTTP 请求并等待响应
+     *        Send HTTP request and wait for response
+     * @param request 网络请求 / Network request
+     * @return QPair<QByteArray, Base::Error> 响应数据或错误 / Response data or error
+     */
+    QPair<QByteArray, Base::Error> sendRequest(const QNetworkRequest& request);
 
 private:
-    QNetworkAccessManager m_networkManager;  ///< 网络管理器 / Network manager
-    QString m_apiToken;                       ///< API 令牌 / API token
-    QString m_baseUrl;                        ///< API 基础 URL / Base URL
+    QNetworkAccessManager* networkManager_;  ///< 网络管理器 / Network manager
+    QString token_;                          ///< API 令牌 / API token
+    QString m_baseUrl;                       ///< API 基础 URL / Base URL
 };
 
 } // namespace MediaViralAssistant::Plugins
