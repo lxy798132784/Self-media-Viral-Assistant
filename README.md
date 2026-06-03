@@ -1,55 +1,79 @@
-# Media Viral Content Assistant / 自媒体爆款助手
+# 自媒体爆款助手 / Media Viral Content Assistant
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![C++20](https://img.shields.io/badge/C%2B%2B-20-blue.svg)](https://isocpp.org/)
-[![Qt](https://img.shields.io/badge/Qt-6.x-green.svg)](https://www.qt.io/)
-[![QML](https://img.shields.io/badge/QML-2.15-green.svg)](https://doc.qt.io/qt-6/qmlapplications.html)
-[![CTK](https://img.shields.io/badge/CTK-PluginFramework-orange.svg)](https://github.com/CommThevege/ctk)
+[![C++20](https://img.shields.io/badge/C%2B%2B-20-green.svg)](https://isocpp.org/)
+[![Qt6](https://img.shields.io/badge/Qt-6.x-blue.svg)](https://www.qt.io/)
 [![Platform](https://img.shields.io/badge/platform-Linux%7CWindows%7CmacOS-lightgrey.svg)]()
-[![Architecture](https://img.shields.io/badge/arch-x86_64%7Carm64-lightgrey.svg)]()
 
-## English
+## 项目简介 / Project Overview
 
-### Overview
+**自媒体爆款助手** 是一款跨平台的自媒体内容分析与选题推荐工具，采用 C++20、Qt6/QML、CTK Plugin Framework 和 PostgreSQL 构建的企业级应用。
 
-Media Viral Content Assistant is an enterprise-grade cross-platform application designed to help content creators and marketers discover, analyze, and replicate viral content across multiple social media platforms. Built with C++20, Qt6, QML, CTK Plugin Framework, and PostgreSQL, it offers a modular, extensible architecture with AI-powered content analysis capabilities.
+**Media Viral Content Assistant** is a cross-platform media content analysis and topic recommendation tool, built with C++20, Qt6/QML, CTK Plugin Framework, and PostgreSQL as an enterprise-grade application.
 
-### Key Features
+### 核心功能 / Core Features
 
-- **Multi-Platform Discovery**: Automatically discovers high-engagement viral content from Alibaba, ByteDance, PDD, Kuaishou, Tencent, Weibo, Bilibili, and more
-- **Data Metrics Collection**: Gathers comprehensive metrics including views, plays, likes, comments, shares, and favorites
-- **Content Detail Extraction**: Retrieves full article text, video descriptions, and comments
-- **AI-Powered Analysis**: Uses LLMs to decompose and analyze viral content from multiple dimensions
-- **Smart Recommendations**: Generates topic suggestions and writing SOPs based on data analysis and AI insights
-- **Plugin Architecture**: Extensible plugin system for new data sources, AI providers, and features
-- **Cross-Platform**: Supports Linux, Windows, macOS with x86_64 and ARM64 architectures
+- 🔥 **爆款发现** - 自动从多个自媒体平台发现高阅读/高播放/高互动的爆款内容
+- 📊 **数据指标** - 获取内容的阅读量/播放量、点赞、评论、转发、收藏等详细数据
+- 📝 **内容获取** - 获取爆款内容的正文、视频描述、评论等详细信息
+- 🤖 **AI 拆解分析** - 用大语言模型对爆款内容从多维度拆解分析
+- 💡 **智能推荐** - 基于数据分析和 AI 拆解，自动生成选题建议和写作 SOP
 
-### Technology Stack
+### 支持平台 / Supported Platforms
 
-- **Backend**: C++20 with Qt6 Core
-- **Frontend**: QML 2.15 with modern UI/UX design
-- **Plugin Framework**: CTK (Common Toolkit) Plugin Framework
-- **Database**: PostgreSQL with async driver
-- **AI Integration**: Support for LLMs, Agents, Skills, MCP (Model Context Protocol)
-- **Build System**: CMake 3.20+
-- **Data Sources**: Extreme Data API, Xinbang API, Xigua Data, Qingbo Intelligence, WeWe RSS, WeChat Official API
+| 平台系 | 具体平台 |
+|--------|----------|
+| 阿里系 | 微信公众号、UC 大鱼号、阿里文学 |
+| 字节系 | 抖音、今日头条、西瓜视频、火山小视频 |
+| PDD 系 | 拼多多、多多视频 |
+| 快手系 | 快手、快手极速版 |
+| 腾讯系 | 微信公众号、视频号、QQ 看点、腾讯新闻 |
+| 微博系 | 新浪微博、微博视频号 |
+| B 站系 | 哔哩哔哩 |
 
-### Quick Start
+### 支持的数据源 / Supported Data Sources
 
-#### Prerequisites
+- **极致了数据 API** - 精确采集，设备集群真实访问
+- **新榜 API** - 权威新媒体数据平台
+- **西瓜数据 API** - 微信生态数据分析
+- **清博智能 API** - 全网舆情监测
+- **WeWe RSS** - 微信读书接口
+- **微信公众号官方 API** - 官方数据接口
 
-- C++20 compatible compiler (GCC 11+, Clang 14+, MSVC 2022+)
-- Qt 6.5+
-- CMake 3.20+
-- PostgreSQL 14+
-- CTK Plugin Framework
+## 技术架构 / Technical Architecture
 
-#### Build Instructions
+```
+┌─────────────────────────────────────────────────────────────┐
+│                      QML Frontend                           │
+│  Dashboard │ Content Library │ Analysis │ Suggestions      │
+├─────────────────────────────────────────────────────────────┤
+│                     QmlBridge (C++/QML)                     │
+├─────────────────────────────────────────────────────────────┤
+│  Plugin Framework │ Event Bus │ Thread Pool │ Config Mgr   │
+├─────────────────────────────────────────────────────────────┤
+│     API Layer (Data Sources)    │    AI Layer (LLM/MCP)    │
+│  Jizhile │ Xinbang │ Xigua │ ... │ OpenAI │ Claude │ Qwen │
+├─────────────────────────────────────────────────────────────┤
+│                   PostgreSQL Database                       │
+└─────────────────────────────────────────────────────────────┘
+```
+
+## 快速开始 / Quick Start
+
+### 环境要求 / Requirements
+
+- **Compiler**: GCC 11+ / Clang 13+ / MSVC 2022+
+- **CMake**: 3.20+
+- **Qt**: 6.5+
+- **PostgreSQL**: 14+
+- **CTK Plugin Framework** (optional)
+
+### 编译安装 / Build & Install
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-org/media-viral-assistant.git
-cd media-viral-assistant
+# Clone repository
+git clone https://github.com/lxy798132784/Self-media-Viral-Assistant.git
+cd Self-media-Viral-Assistant
 
 # Create build directory
 mkdir build && cd build
@@ -58,140 +82,132 @@ mkdir build && cd build
 cmake .. -DCMAKE_BUILD_TYPE=Release
 
 # Build
-cmake --build . --parallel $(nproc)
+cmake --build . -j$(nproc)
 
 # Install
 sudo cmake --install .
 ```
 
-#### Configuration
+### Windows 编译 / Build on Windows
 
-1. Configure database connection in `config/database.conf`
-2. Set up API keys for data providers in `config/api_keys.conf`
-3. Configure AI providers in `config/ai_providers.conf`
-
-### Project Structure
-
-```
-media-viral-assistant/
-├── src/                    # Source code
-│   ├── core/               # Core business logic
-│   ├── plugins/            # Plugin implementations
-│   ├── ui/                 # QML UI components
-│   ├── api/                # API clients for data sources
-│   ├── ai/                 # AI integration modules
-│   ├── database/           # Database access layer
-│   └── utils/              # Utility functions
-├── include/                # Public headers
-├── resources/              # QML files, icons, translations
-├── docs/                   # Documentation (EN/ZH)
-├── examples/               # Usage examples
-├── tests/                  # Unit and integration tests
-└── plugins/                # Runtime plugin directory
+```powershell
+# Using PowerShell
+mkdir build
+cd build
+cmake .. -G "Visual Studio 17 2022" -A x64
+cmake --build . --config Release
 ```
 
-### Documentation
+## 配置说明 / Configuration
 
-- [User Guide (English)](docs/en/user_guide.md)
-- [Developer Guide (English)](docs/en/developer_guide.md)
-- [API Reference (English)](docs/en/api_reference.md)
-- [Deployment Guide (English)](docs/en/deployment.md)
+### 数据库配置 / Database Configuration
 
-### License
+编辑 `config/database.conf`:
+```ini
+host=localhost
+port=5432
+database=media_viral_db
+user=postgres
+password=your_password
+```
 
-MIT License - see [LICENSE](LICENSE) for details
+### API 密钥配置 / API Keys Configuration
+
+编辑 `config/api_keys.conf`:
+```ini
+jizhile_token=your_jizhile_token
+xinbang_key=your_xinbang_key
+xigua_key=your_xigua_key
+qingbo_appid=your_qingbo_appid
+qingbo_secret=your_qingbo_secret
+```
+
+### AI 提供商配置 / AI Providers Configuration
+
+编辑 `config/ai_providers.conf`:
+```ini
+active_provider=openai
+openai_key=sk-your-openai-key
+claude_key=your-claude-key
+qwen_key=your-qwen-key
+ernie_key=your-ernie-key
+```
+
+## 开发文档 / Development Documentation
+
+详细开发文档请参阅 [docs/](docs/) 目录:
+
+- [开发指南 (中文)](docs/zh/DEVELOPMENT.md)
+- [Development Guide (English)](docs/en/DEVELOPMENT.md)
+- [API 文档](docs/API.md)
+- [插件开发指南](docs/PLUGIN_DEV.md)
+
+## 使用示例 / Usage Examples
+
+### 获取爆款内容 / Fetch Viral Content
+
+```qml
+// QML example
+qmlBridge.fetchViralContent("wechat", 50)
+```
+
+### 分析文章 / Analyze Article
+
+```cpp
+// C++ example
+auto result = co_await qmlBridge->analyzeArticle("https://mp.weixin.qq.com/s/xxx");
+if (result.hasValue()) {
+    qDebug() << "Analysis score:" << result->score;
+}
+```
+
+### 切换 AI 提供商 / Switch AI Provider
+
+```qml
+qmlBridge.switchAiProvider("claude")
+```
+
+## 项目结构 / Project Structure
+
+```
+Self-media-Viral-Assistant/
+├── include/                 # Header files
+│   ├── core/               # Core components
+│   ├── api/                # Data source APIs
+│   ├── ai/                 # AI providers
+│   ├── database/           # Database layer
+│   ├── ui/                 # UI components
+│   └── utils/              # Utilities
+├── src/                     # Source files
+├── plugins/                 # Plugin modules
+├── resources/               # Resources (QML, icons, translations)
+├── config/                  # Configuration templates
+├── docs/                    # Documentation
+├── tests/                   # Unit tests
+├── examples/                # Code examples
+├── CMakeLists.txt          # Build configuration
+└── README.md               # This file
+```
+
+## 许可证 / License
+
+MIT License - See [LICENSE](LICENSE) for details.
+
+## 贡献 / Contributing
+
+欢迎贡献代码！请遵循以下步骤：
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 联系方式 / Contact
+
+- **GitHub**: https://github.com/lxy798132784/Self-media-Viral-Assistant
+- **Issues**: https://github.com/lxy798132784/Self-media-Viral-Assistant/issues
 
 ---
 
-## 中文
-
-### 项目概述
-
-自媒体爆款助手是一款企业级跨平台应用程序，旨在帮助内容创作者和营销人员发现、分析和复制多个社交媒体平台上的爆款内容。本项目采用 C++20、Qt6、QML、CTK 插件框架和 PostgreSQL 构建，提供模块化、可扩展的架构和 AI 驱动的内容分析能力。
-
-### 核心功能
-
-- **多平台发现**：自动从阿里系、字节系、PDD 系、快手系、腾讯系、微博系、B 站系等平台发现高互动爆款内容
-- **数据指标采集**：收集阅读量、播放量、点赞、评论、转发、收藏等全面指标
-- **内容详情提取**：获取文章全文、视频描述、评论等详细信息
-- **AI 智能分析**：使用大语言模型从多维度拆解分析爆款内容
-- **智能推荐**：基于数据分析和 AI 洞察生成选题建议和写作 SOP
-- **插件架构**：可扩展的插件系统，支持新增数据源、AI 提供商和功能模块
-- **跨平台支持**：支持 Linux、Windows、macOS，兼容 x86_64 和 ARM64 架构
-
-### 技术栈
-
-- **后端**：C++20 + Qt6 Core
-- **前端**：QML 2.15 + 现代化 UI/UX 设计
-- **插件框架**：CTK (Common Toolkit) Plugin Framework
-- **数据库**：PostgreSQL + 异步驱动
-- **AI 集成**：支持大模型、Agent、Skills、MCP (Model Context Protocol)
-- **构建系统**：CMake 3.20+
-- **数据源**：极致了数据 API、新榜 API、西瓜数据、清博智能、WeWe RSS、微信公众号官方 API
-
-### 快速开始
-
-#### 前置要求
-
-- 支持 C++20 的编译器（GCC 11+、Clang 14+、MSVC 2022+）
-- Qt 6.5+
-- CMake 3.20+
-- PostgreSQL 14+
-- CTK 插件框架
-
-#### 构建说明
-
-```bash
-# 克隆仓库
-git clone https://github.com/your-org/media-viral-assistant.git
-cd media-viral-assistant
-
-# 创建构建目录
-mkdir build && cd build
-
-# CMake 配置
-cmake .. -DCMAKE_BUILD_TYPE=Release
-
-# 编译
-cmake --build . --parallel $(nproc)
-
-# 安装
-sudo cmake --install .
-```
-
-#### 配置说明
-
-1. 在 `config/database.conf` 中配置数据库连接
-2. 在 `config/api_keys.conf` 中设置数据提供商的 API 密钥
-3. 在 `config/ai_providers.conf` 中配置 AI 提供商
-
-### 项目结构
-
-```
-media-viral-assistant/
-├── src/                    # 源代码
-│   ├── core/               # 核心业务逻辑
-│   ├── plugins/            # 插件实现
-│   ├── ui/                 # QML UI 组件
-│   ├── api/                # 数据源 API 客户端
-│   ├── ai/                 # AI 集成模块
-│   ├── database/           # 数据库访问层
-│   └── utils/              # 工具函数
-├── include/                # 公共头文件
-├── resources/              # QML 文件、图标、翻译
-├── docs/                   # 文档（中英文）
-├── examples/               # 使用示例
-├── tests/                  # 单元测试和集成测试
-└── plugins/                # 运行时插件目录
-```
-
-### 文档链接
-
-- [用户指南（中文）](docs/zh/user_guide.md)
-- [开发者指南（中文）](docs/zh/developer_guide.md)
-- [API 参考（中文）](docs/zh/api_reference.md)
-- [部署指南（中文）](docs/zh/deployment.md)
-
-### 开源协议
-
-MIT 许可证 - 详见 [LICENSE](LICENSE)
+© 2024 Media Viral Assistant Team. All rights reserved.
