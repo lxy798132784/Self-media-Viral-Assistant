@@ -1,0 +1,48 @@
+```
+# Build artifacts
+CMakeFiles/
+cmake-build-*/
+build/
+dist/
+*.so
+*.dylib
+*.dll
+*.exe
+*.o
+*.obj
+*.a
+*.lib
+
+# Dependencies
+vendor/
+external/
+
+# Logs
+*.log
+
+# Environment
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Coverage
+coverage/
+htmlcov/
+.coverage
+
+# CMake
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+```
